@@ -22,6 +22,15 @@ class _ScreenTwoPageState extends State<ScreenTwoPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
 
+    @override
+  void initState() {
+    firstNameController.text = widget.dataModel.firstName!;
+    lastNameController.text = widget.dataModel.lastName!;
+    emailController.text = widget.dataModel.email!;
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -127,7 +136,7 @@ class _ScreenTwoPageState extends State<ScreenTwoPage> {
             child: CustomInputField(
               hintText: widget.dataModel.lastName!,
               suffixIcon: const SizedBox(),
-              controller: firstNameController,
+              controller: lastNameController,
             ),
           ),
           const SizedBox(
