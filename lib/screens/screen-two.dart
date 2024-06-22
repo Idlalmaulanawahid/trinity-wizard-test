@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:trinity_wizard_test/config/theme.dart';
 import 'package:trinity_wizard_test/models/data-model.dart';
+import 'package:trinity_wizard_test/screens/screen-one.dart';
 import 'package:trinity_wizard_test/widgets/custom_input-field.dart';
 
 class ScreenTwoPage extends StatefulWidget {
@@ -30,14 +31,14 @@ class _ScreenTwoPageState extends State<ScreenTwoPage> {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () => {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (BuildContext context) {
-                //       return const SignupIdvCheckPage();
-                //     },
-                //   ),
-                // ),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const ScreenOnePage();
+                    },
+                  ),
+                ),
               },
               child: Text(
                 "Cancel",
