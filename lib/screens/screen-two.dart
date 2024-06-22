@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:trinity_wizard_test/config/theme.dart';
 import 'package:trinity_wizard_test/models/data-model.dart';
 import 'package:trinity_wizard_test/screens/screen-one.dart';
 import 'package:trinity_wizard_test/widgets/custom_input-field.dart';
-
 class ScreenTwoPage extends StatefulWidget {
   ListDataModel dataModel;
   ScreenTwoPage({
@@ -22,7 +22,7 @@ class _ScreenTwoPageState extends State<ScreenTwoPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController dateController = TextEditingController();
 
-    @override
+  @override
   void initState() {
     firstNameController.text = widget.dataModel.firstName!;
     lastNameController.text = widget.dataModel.lastName!;
@@ -65,16 +65,7 @@ class _ScreenTwoPageState extends State<ScreenTwoPage> {
           elevation: 0,
           actions: [
             TextButton(
-              onPressed: () => {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (BuildContext context) {
-                //       return const SignupIdvCheckPage();
-                //     },
-                //   ),
-                // ),
-              },
+              onPressed: () => {},
               child: Text(
                 "Save",
                 style: primaryTextStyle.copyWith(
@@ -85,7 +76,6 @@ class _ScreenTwoPageState extends State<ScreenTwoPage> {
           ]),
       body: SingleChildScrollView(
           child: Column(
-        // crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
@@ -185,11 +175,15 @@ class _ScreenTwoPageState extends State<ScreenTwoPage> {
               formatInput: TextInputType.datetime,
               onTap: () async {
                 FocusScope.of(context).requestFocus(FocusNode());
-                // DateTime? pickedDate = await showDatePicker(
-                //   context: context,
-                //   initialDate: DateTime.now(),
-                // );
+                DateTime? pickedDate = await showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(1900),
+                  lastDate: DateTime.now(),
+                );
                 setState(() {});
+                dateController.text =
+                    DateFormat('dd MMMM yyyy').format(pickedDate!);
               },
             ),
           ),
