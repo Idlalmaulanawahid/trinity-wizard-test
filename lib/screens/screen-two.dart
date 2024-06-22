@@ -1,9 +1,15 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:trinity_wizard_test/config/theme.dart';
+import 'package:trinity_wizard_test/models/data-model.dart';
 import 'package:trinity_wizard_test/widgets/custom_input-field.dart';
 
 class ScreenTwoPage extends StatefulWidget {
-  const ScreenTwoPage({super.key});
+  ListDataModel dataModel;
+  ScreenTwoPage({
+    Key? key,
+    required this.dataModel,
+  }) : super(key: key);
 
   @override
   State<ScreenTwoPage> createState() => _ScreenTwoPageState();
@@ -107,7 +113,7 @@ class _ScreenTwoPageState extends State<ScreenTwoPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CustomInputField(
-              hintText: 'First Name',
+              hintText: widget.dataModel.firstName!,
               suffixIcon: const SizedBox(),
               controller: firstNameController,
             ),
@@ -118,7 +124,7 @@ class _ScreenTwoPageState extends State<ScreenTwoPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CustomInputField(
-              hintText: 'Last Name',
+              hintText: widget.dataModel.lastName!,
               suffixIcon: const SizedBox(),
               controller: firstNameController,
             ),

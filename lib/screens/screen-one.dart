@@ -6,6 +6,7 @@ import 'package:trinity_wizard_test/models/data-model.dart';
 import 'package:trinity_wizard_test/screens/screen-two.dart';
 
 class ScreenOnePage extends StatefulWidget {
+  
   const ScreenOnePage({super.key});
 
   @override
@@ -80,7 +81,7 @@ class _ScreenOnePageState extends State<ScreenOnePage> {
          Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (BuildContext context) => const ScreenTwoPage()
+            builder: (BuildContext context) =>  ScreenTwoPage(dataModel: data[index],)
           ),
         );
       },
